@@ -10,3 +10,6 @@ node {
             string(defaultValue: '', description: '''input name of chef env that you want to attach to nodes. DO NOT include .json, just provide env name. IT IS ASSUMED THAT ENV NAME IS SAME AS ENV FILE NAME.''', name: 'CHEF_ENV_NAME', trim: true)
         ])
     ])
+sh """
+    echo my name is naveen
+"""
