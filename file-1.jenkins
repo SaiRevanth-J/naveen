@@ -1,6 +1,6 @@
 properties([
     parameters([
-        choice(choices: ["${repo}", 'prodops-np', "${exe_repo}", 'icrt-infra', 'b2b-infra', 'opsinsights-infra', 'apim', 'cih'], description: 'Select repositories to clone', name: 'REPO_NAME'),
+        choice(choices: ['prodops-np', 'icrt-infra', 'b2b-infra', 'opsinsights-infra', 'apim', 'cih'], description: 'Select repositories to clone', name: 'REPO_NAME'),
         choice(choices: ['jenkins', 'mgmt'], description: 'Select node to clone', name: 'LABEL')
     ])
 ])
