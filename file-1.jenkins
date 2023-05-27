@@ -4,6 +4,9 @@ properties([
         choice(choices: ['jenkins', 'mgmt'], description: 'Select node to clone', name: 'LABEL')
     ])
 ])
-sh """
-    echo my name is naveen
-"""
+
+node {
+    sh """
+        echo my name is naveen
+    """
+}
