@@ -3,7 +3,8 @@ properties([
         choice(choices: ['prodops-np', 'icrt-infra', 'b2b-infra', 'opsinsights-infra', 'apim', 'cih'], description: 'Select repositories to clone', name: 'REPO_NAME'),
         choice(choices: ['jenkins', 'mgmt'], description: 'Select node to clone', name: 'LABEL'),
         booleanParam(defaultValue: false, description: 'Check to update terraform.tfvars', name: 'UPDATER'),
-        booleanParam(defaultValue: true, description: 'Check to provision resources', name: 'EXECUTOR')
+        booleanParam(defaultValue: true, description: 'Check to provision resources', name: 'EXECUTOR'),
+        string(defaultValue: '', description: 'Pod Names seprated by comma(USW1,USW3,USE2,USE4,USE6,EMW1,APSE1) ', name: 'POD', trim: true),
     ])
 ])
 
