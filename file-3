@@ -6,7 +6,7 @@ properties([
         booleanParam(defaultValue: true, description: 'Check to provision resources', name: 'EXECUTOR'),
         string(defaultValue: '', description: 'Pod Names seprated by comma(USW1,USW3,USE2,USE4,USE6,EMW1,APSE1) ', name: 'POD', trim: true),
         string(defaultValue: '', description: 'Command to execute', name: 'COMMAND', trim: true),
-        string(name: 'REM_RUNNER_HOME', defaultValue: "/data/gitws/${repo}/jenkins/runner", description: 'Absolute path of rem-runner directory'),
+        string(name: 'REM_RUNNER_HOME', defaultValue: "/data/gitws/jenkins/runner", description: 'Absolute path of rem-runner directory'),
     ])
 ])
 
