@@ -1,0 +1,21 @@
+node { 
+    
+    properties([
+                parameters([
+                [$class: 'ChoiceParameter', choiceType: 'PT_SINGLE_SELECT', description: 'Select POD', filterLength: 1, filterable: true, name: 'POD', script: [$class: 'GroovyScript', fallbackScript: [classpath: [], sandbox: true, script: 'return "error"'], script: [classpath: [], sandbox: true, script: '''def choices=[];\ntextFile=new File("/data/gitws/${repo}/jenkins/constants/parameters");\ntextFile.eachLine{ line ->\nif(line.startsWith(\'POD\')) {\nline.split(\'=\')[1].split(\',\').each {\nchoices.add(it)\n}}}\nreturn choices''']]],
+                [$class: 'ChoiceParameter', choiceType: 'PT_SINGLE_SELECT', description: 'Select Application Environment', filterLength: 1, filterable: false, name: 'APPLICATIONENV', script: [$class: 'GroovyScript', fallbackScript: [classpath: [], sandbox: true, script: 'return \'error\''], script: [classpath: [], sandbox: true, script: '''def choices=[];\ntextFile=new File("/data/gitws/${repo}/jenkins/constants/parameters");\ntextFile.eachLine{ line ->\nif(line.startsWith(\'APPLICATIONENV\')) {\nline.split(\'=\')[1].split(\',\').each {\nchoices.add(it)\n}}}\nreturn choices''']]],
+                ])
+
+    build job: 'utils/Clone Repository', parameters: [string(name: 'REPO_NAME', value: "apim"), string(name: 'LABEL', value: 'mgmt')]
+
+    if( fileExists("/data/gitws/apim/scripts/manage_orgs/running_wakeorgs.sh") ) {
+                   
+        echo " running_wakeorgs.sh Exists"
+        sh """
+           sh /data/gitws/apim/scripts/manage_orgs/running_wakeorgs.sh ${POD} ${APPLICATIONENV}
+        """
+    }
+    else {
+        echo "wake_orgs_running.sh file is Missing"
+    }
+}
