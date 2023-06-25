@@ -10,18 +10,24 @@ node {
     """
 }
 
-happy = input(message: "Folder /home/ubuntu/ exists. ubuntyu is there", parameters: [booleanParam(defaultValue: true, description: 'Uncheck the box if you do not want to copy new provisioner code', name: 'Copy?')])
-
-node {
-    sh """
-         echo " iam in copy "
-    """
+shouldCopy = input(message: "Folder /home/ubuntu/ exists. ubuntyu is there", parameters: [booleanParam(defaultValue: true, description: 'Uncheck the box if you do not want to copy new provisioner code', name: 'Copy?')])
+node {    
+if(shouldCopy) {
+       //echo "Copying Provisioner Folder /data/terraform/${folderName}/provisioner"
+        sh """
+             echo " iam  copy the files  "
+        """
+    }
+  
 }
 
-birthday = input(message: "Folder /home/ubuntu/ exists. not there", parameters: [booleanParam(defaultValue: true, description: 'Uncheck the box if you do not want to copy new provisioner code', name: 'write?')])
-
-node {
-    sh """
-         echo " iam in write "
-    """
+shouldCopy-1 = input(message: "Folder /home/ubuntu/ exists. ubuntyu is there", parameters: [booleanParam(defaultValue: true, description: 'Uncheck the box if you do not want to copy new provisioner code', name: 'write?')])
+node {    
+if(shouldCopy-1) {
+       //echo "Copying Provisioner Folder /data/terraform/${folderName}/provisioner"
+        sh """
+             echo " iam  writing the files  "
+        """
+    }
+  
 }
