@@ -4,6 +4,16 @@ properties([
     ])
 ])
  input "Do You want to add the nodes behind load balancer..."
-sh """
-    echo " iam in pause "
-"""
+node {
+    sh """
+         echo " iam in pause "
+    """
+}
+
+shouldCopy = input(message: "Folder /data/terraform/${folderName}/provisioner Exists. Do we need to overwrite?", parameters: [booleanParam(defaultValue: true, description: 'Uncheck the box if you do not want to copy new provisioner code', name: 'Copy?')])
+
+node {
+    sh """
+         echo " iam in copy "
+    """
+}
