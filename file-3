@@ -10,7 +10,7 @@ node {
     """
 }
 
-shouldCopy = input(message: "Folder /home/ubuntu/ exists. ubuntyu is there", parameters: [booleanParam(defaultValue: true, description: 'Uncheck the box if you do not want to copy new provisioner code', name: 'Copy?')])
+happy = input(message: "Folder /home/ubuntu/ exists. ubuntyu is there", parameters: [booleanParam(defaultValue: true, description: 'Uncheck the box if you do not want to copy new provisioner code', name: 'Copy?')])
 
 node {
     sh """
@@ -18,7 +18,7 @@ node {
     """
 }
 
-shouldCopy = input(message: "Folder /home/ubuntu/ exists. not there", parameters: [booleanParam(defaultValue: true, description: 'Uncheck the box if you do not want to copy new provisioner code', name: 'write?')])
+birthday = input(message: "Folder /home/ubuntu/ exists. not there", parameters: [booleanParam(defaultValue: true, description: 'Uncheck the box if you do not want to copy new provisioner code', name: 'write?')])
 
 node {
     sh """
