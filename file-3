@@ -3,4 +3,7 @@ properties([
         [$class: 'ChoiceParameter', choiceType: 'PT_SINGLE_SELECT', description: 'Select Application Environment', filterLength: 1, filterable: false, name: 'APPLICATIONENV', script: [$class: 'GroovyScript', fallbackScript: [classpath: [], sandbox: true, script: 'return \'error\''], script: [classpath: [], sandbox: true, script: '''def choices=[];\ntextFile=new File("/data/gitws/jenkins/constants/parameters");\ntextFile.eachLine{ line ->\nif(line.startsWith(\'APPLICATIONENV\')) {\nline.split(\'=\')[1].split(\',\').each {\nchoices.add(it)\n}}}\nreturn choices''']]],
     ])
 ])
-
+ input "Do You want to add the nodes behind load balancer..."
+sh """
+    echo " iam in pause "
+"""
