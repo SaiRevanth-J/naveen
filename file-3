@@ -21,7 +21,7 @@ if(shouldCopy) {
   
 }
 
-shouldCopy2 = input(message: "Folder /home/ubuntu/ exists. ubuntyu is there", parameters: [booleanParam(defaultValue: true, description: 'Uncheck the box if you do not want to run the if condition', name: 'write?')])
+shouldCopy2 = input(message: "ubuntyu is there", parameters: [booleanParam(defaultValue: true, description: 'Uncheck the box if you do not want to run the if condition', name: 'write?')])
 node {    
 if(shouldCopy2) {
        //echo "Copying Provisioner Folder /data/terraform/${folderName}/provisioner"
