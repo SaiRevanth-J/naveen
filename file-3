@@ -17,3 +17,11 @@ node {
          echo " iam in copy "
     """
 }
+
+shouldCopy = input(message: "Folder /home/ubuntu/ exists", parameters: [booleanParam(defaultValue: true, description: 'Uncheck the box if you do not want to copy new provisioner code', name: 'write?')])
+
+node {
+    sh """
+         echo " iam in write "
+    """
+}
